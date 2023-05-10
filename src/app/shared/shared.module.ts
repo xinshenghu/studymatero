@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { DragDropModule } from '@angular/cdk/drag-drop';
-
 import { MaterialModule } from '../material.module';
 import { MaterialExtensionsModule } from '../material-extensions.module';
 
@@ -29,7 +27,6 @@ const MODULES: any[] = [
   RouterModule,
   ReactiveFormsModule,
   FormsModule,
-  DragDropModule,
   MaterialModule,
   MaterialExtensionsModule,
   FormlyModule,

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
@@ -18,19 +17,19 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '@env/environment';
 import { BASE_URL, httpInterceptorProviders, appInitializerProviders } from '@core';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemDataService } from '@shared/in-mem/in-mem-data.service';
-
 // Required for AOT compilation
 export function TranslateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+import { LoginService } from '@core/authentication/login.service';
+import { FakeLoginService } from './fake-login.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
     ThemeModule,
@@ -46,14 +45,11 @@ export function TranslateHttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    // Demo purposes only for GitHub Pages
-    HttpClientInMemoryWebApiModule.forRoot(InMemDataService, {
-      dataEncapsulation: false,
-      passThruUnknownUrl: true,
-    }),
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: BASE_URL, useValue: environment.baseUrl },
+    { provide: LoginService, useClass: FakeLoginService }, // <= Remove it in the real APP
     httpInterceptorProviders,
     appInitializerProviders,
   ],

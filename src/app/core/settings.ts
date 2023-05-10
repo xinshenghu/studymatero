@@ -1,7 +1,7 @@
 export interface AppSettings {
   navPos: 'side' | 'top';
-  dir: 'ltr' | 'rtl';
   theme: 'light' | 'dark' | 'auto';
+  dir: 'ltr' | 'rtl';
   showHeader: boolean;
   headerPos: 'fixed' | 'static' | 'above';
   showUserPanel: boolean;
@@ -12,8 +12,8 @@ export interface AppSettings {
 
 export const defaults: AppSettings = {
   navPos: 'side',
-  dir: 'ltr',
   theme: 'auto',
+  dir: 'ltr',
   showHeader: true,
   headerPos: 'fixed',
   showUserPanel: true,

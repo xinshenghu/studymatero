@@ -1,5 +1,6 @@
 {
   "menu": {
+    "test1": "test1",
     "dashboard": "数据大盘",
     "design": "设计",
     "design.colors": "颜色系统",

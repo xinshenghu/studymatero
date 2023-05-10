@@ -20,7 +20,7 @@
   }
 }
 
-@media (width <= 720px) {
+@media (max-width: 720px) {
   .hide-small {
     display: none !important;
   }
